@@ -10,7 +10,7 @@ export const App = () => {
   // функцию, которая вернет значения из localStorage или по умолчанию [], если данных не будет, функция выполнится один раз при первом рендере
   // (ленивая инициализация состояния)
   const [contacts, setContacts] = useState(() => {
-    return JSON.parse(localStorage.getItem('contacts') ?? []);
+    return JSON.parse(localStorage.getItem('contacts')) ?? [];
   });
 
   const [filter, setFilter] = useState('');

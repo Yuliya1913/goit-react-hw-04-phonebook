@@ -9,16 +9,13 @@ export const ContactForm = ({ onSubmit }) => {
   let nameId = nanoid();
   let numberId = nanoid();
 
-  const handleNameChange = event => {
+  const handleChange = event => {
     //   при введении данных в инпут записываем эти значения в качестве свойств и их значений
+    const { name, value } = event.currentTarget;
 
-    // console.log(event.currentTarget.name);
+    if (name === 'name') setName(value);
 
-    setName(event.currentTarget.value);
-  };
-
-  const handleNumberChange = event => {
-    setNumber(event.currentTarget.value);
+    if (name === 'number') setNumber(value);
   };
 
   const handleSubmitForm = event => {
@@ -47,7 +44,7 @@ export const ContactForm = ({ onSubmit }) => {
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           value={name}
           required
-          onChange={handleNameChange}
+          onChange={handleChange}
           id={nameId}
         />
       </label>
@@ -61,7 +58,7 @@ export const ContactForm = ({ onSubmit }) => {
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
           value={number}
-          onChange={handleNumberChange}
+          onChange={handleChange}
           id={numberId}
         />
       </label>
